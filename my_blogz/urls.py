@@ -1,4 +1,5 @@
 from django.contrib import admin
+#from .views import User
 from django.urls import path, include
 
 urlpatterns = [
