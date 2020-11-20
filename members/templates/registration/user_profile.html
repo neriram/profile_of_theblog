@@ -14,7 +14,7 @@
             <img src="{{ profile.profile_pic.url }}" class="card-img">
 
             {% else %}
-                <img src="{% static 'theblog/images/default_profile_pic.png' %}" class="card-img">
+                <img src="{% static 'theblog/images/default_profile_pic.png' %}" class="card-img" alt-text="profile picture of user">
         
             {% endif %}
         </div>
@@ -24,16 +24,28 @@
                     {{ page_user.user.first_name }}
                     {{ page_user.user.last_name }}
                 </h5>
+                <p class="small text-muted">
+                    {% if page_user.website_url %}
+                    <a href="{{ page_user.website_url }}">Website </a>
+                    {% endif %}
+                    {% if page_user.facebook_url %}
+                    <a href="{{ page_user.facebook_url }}">| Facebook</a>
+                    {% endif %}
+                    {% if page_user.twitter_url %}
+                    <a href="{{ page_user.twitter_url }}">| Twitter</a>
+                    {% endif %}
+                    {% if page_user.pintrest_url %}
+                    <a href="{{ page_user.pintrest_url }}">| Pintrest</a>
+                    {% endif %}
+                    {% if page_user.instagram_url %}
+                    <a href="{{ page_user.instagram_url }}">| Instagram</a>
+                    {% endif %}
+
+
+                </p>
                 <p class="card-text">
                     {{ page_user.bio }}
                 </p>
-                <ul>
-                <li>{{ page_user.website_url }}</li>
-                <li>{{ page_user.facebook_url }}</li>
-                <li>{{ page_user.twitter_url }}</li>
-                <li>{{ page_user.pintrest_url }}</li>
-                <li>{{ page_user.instagram_url }}</li>
-                </ul>
             </div>
             
         </div>
