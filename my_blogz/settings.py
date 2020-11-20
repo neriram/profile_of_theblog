@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'my_blogz.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd6rnirhj15i91t',
         'HOST': 'ec2-54-224-175-142.compute-1.amazonaws.com',
         'PORT': 5432,
@@ -89,6 +89,10 @@ DATABASES = {
         'PASSWORD': 'ab40f90142ec17a1395eda0db8e5deced5e1584265de59d53215dd33524ec28f',
     }
 }
+DATABASES['default'] = dj_database_url.parse('postgres://jaieldpqadzfbg:ab40f90142ec17a1395eda0db8e5deced5e1584265de59d53215dd33524ec28f@ec2-54-224-175-142.compute-1.amazonaws.com:5432/d6rnirhj15i91t')
+
+#DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -147,4 +151,3 @@ LOGOUT_REDIRECT_URL = 'home'
 django_heroku.settings(locals())
 
 # Configure env variables for database connection
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
