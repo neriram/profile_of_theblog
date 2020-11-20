@@ -7,7 +7,7 @@
 {{ user.profile.bio }}
 <br></br>
 
-<div class="form-group">
+<div class="form-group" enctype="multipart/form-data">
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
