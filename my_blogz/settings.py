@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os 
 import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,7 @@ SECRET_KEY = '5!fk4ag@z4&fsm52#3tatwthqg+_fr*cqarevgr^0nv6swv8$4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://thebookoffaces.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
@@ -81,11 +82,14 @@ WSGI_APPLICATION = 'my_blogz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blogdb',
+        'NAME': 'd6rnirhj15i91t',
+        'HOST': 'ec2-54-224-175-142.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER':'jaieldpqadzfb',
+        'PASSWORD': 'ab40f90142ec17a1395eda0db8e5deced5e1584265de59d53215dd33524ec28f'
+
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -133,12 +137,15 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static')
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static')
+# )
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+# Configure env variables for database connection
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
