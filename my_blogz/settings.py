@@ -86,8 +86,7 @@ DATABASES = {
         'HOST': 'ec2-54-224-175-142.compute-1.amazonaws.com',
         'PORT': 5432,
         'USER':'jaieldpqadzfb',
-        'PASSWORD': 'ab40f90142ec17a1395eda0db8e5deced5e1584265de59d53215dd33524ec28f'
-
+        'PASSWORD': 'ab40f90142ec17a1395eda0db8e5deced5e1584265de59d53215dd33524ec28f',
     }
 }
 # Password validation
