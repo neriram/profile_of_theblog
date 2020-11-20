@@ -35,7 +35,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="{% url 'edit_profile' %}">Edit User Settings</a>
             {% if user.profile.id %}
-            <a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Show Profile Page</a>
+            <a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">View Profile Page</a>
             <a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile Page</a>
             {% else %}
             <a class="dropdown-item" href="{% url 'create_profile_page' %}">Create Profile Page</a>
@@ -53,11 +53,11 @@
       </ul>
       {% if user.is_authenticated %}
       {% if user.profile.id %}
-        <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         </li>
-        </ul>
+      </ul>
       {% endif %}
       {% endif %}
     </div>
